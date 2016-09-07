@@ -1,4 +1,4 @@
-﻿namespace UserInterface
+﻿namespace GUI
 {
     partial class UserInterface
     {
