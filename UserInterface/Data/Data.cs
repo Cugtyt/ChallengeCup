@@ -65,7 +65,7 @@ namespace Data
         {
             return (int)X.Max() / YParts; ;
         }
-
+        
         /// <summary>
         /// 计算y轴的数据间隔
         /// y轴最大值 / 间隔数
@@ -78,7 +78,7 @@ namespace Data
             {
                 max = (item.Data.Max() > max) ? item.Data.Max() : max;
             }
-            return (int)max / YParts;
+            return (int)max / YParts; ;
         }
 
         /// <summary>
