@@ -10,6 +10,11 @@ namespace ChallengeCup.Data
     class DataSource
     {
         /// <summary>
+        /// x轴和y轴名称
+        /// </summary>
+        public string XName { get; set; } = "x name";
+        public string YName { get; set; } = "y name";
+        /// <summary>
         /// x轴和y轴数据
         /// </summary>
         public List<float> X { get; private set; }
