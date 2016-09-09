@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "UserInterface\GUI.csproj", "{64DBD7BE-08CB-450C-A7EA-A5DEE5D0DEEF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileControl", "FileControl\FileControl.csproj", "{09FA9942-DD21-4350-A73B-F961A81E8994}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataControl", "DataSource\DataControl.csproj", "{6CB46E01-7C36-4410-B333-418344BC49D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeCup", "UserInterface\ChallengeCup.csproj", "{64DBD7BE-08CB-450C-A7EA-A5DEE5D0DEEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +15,6 @@ Global
 		{64DBD7BE-08CB-450C-A7EA-A5DEE5D0DEEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64DBD7BE-08CB-450C-A7EA-A5DEE5D0DEEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64DBD7BE-08CB-450C-A7EA-A5DEE5D0DEEF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{09FA9942-DD21-4350-A73B-F961A81E8994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09FA9942-DD21-4350-A73B-F961A81E8994}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09FA9942-DD21-4350-A73B-F961A81E8994}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09FA9942-DD21-4350-A73B-F961A81E8994}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6CB46E01-7C36-4410-B333-418344BC49D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6CB46E01-7C36-4410-B333-418344BC49D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6CB46E01-7C36-4410-B333-418344BC49D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6CB46E01-7C36-4410-B333-418344BC49D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChallengeCup.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace GUI
+
+namespace ChallengeCup
 {
     public partial class UserInterface : Form
     {
@@ -21,13 +23,12 @@ namespace GUI
         protected override void OnPrint(PaintEventArgs e)
         {
             base.OnPrint(e);
-            List<int> listX = new List<int> { 1, 2, 5, 6, 6, 8, 58, 8, 32 };
-            List<int> listY = new List<int> { 5, 5, 4, 7, 57, 8, 8, 7, 32 };
-
+            
+            DataSource ds = new DataSource();
             try
             {
                 //chart1.Series[0].Points.DataBindXY(listX, listY);
-                chart1.Series[0].Points.DataBindY(listY);
+                chart1.Series[0].Points.DataBindY(ds.Y);
 
                 //chart1.Series[0].MarkerColor = Color.Green;               //unknown
                 // 设置为折线显示
@@ -53,27 +54,15 @@ namespace GUI
                 //chart1.ChartAreas[0].AxisX.ScaleView.SmallScrollSize = double.NaN;
                 //chart1.ChartAreas[0].AxisX.ScaleView.SmallScrollMinSize = 1;
                 // 设置x轴间隔
-                chart1.ChartAreas[0].AxisX.Interval = listX.Average() / 10;
+                chart1.ChartAreas[0].AxisX.Interval = ds.X.Average() / 10;
                 //设置竖直标线
                 chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
                 //chart1.ChartAreas[0].AxisX.Title = "x title";
                 //chart1.ChartAreas[0].AxisY.Title = "y title";
-                //double max = listY[0];
-                //double min = listY[0];
-                //foreach (var yValue in listY)
-                //{
-                //    if (max < yValue)
-                //    {
-                //        max = yValue;
-                //    }
-                //    if (min > yValue)
-                //    {
-                //        min = yValue;
-                //    }
-                //}
-                chart1.ChartAreas[0].AxisY.Maximum = listY.Average() * 4;
+
+                chart1.ChartAreas[0].AxisY.Maximum = ds.MaxY();
                 chart1.ChartAreas[0].AxisY.Minimum = 0;
-                chart1.ChartAreas[0].AxisY.Interval = listY.Average() / 2;
+                chart1.ChartAreas[0].AxisY.Interval = ds.YInterval();
                 //绑定数据源
                 chart1.DataBind();
             }
