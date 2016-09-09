@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChallengeCup.Data
+namespace Data
 {
-    class DataSource
+    class Data
     {
         /// <summary>
         /// x轴和y轴名称
@@ -19,11 +19,18 @@ namespace ChallengeCup.Data
         /// </summary>
         public List<float> X { get; private set; }
         public List<float> Y { get; private set; }
+        /// <summary>
+        /// 每个通道的数据
+        /// </summary>
+        public Chanel[] Chanels { get; private set; }
+        public int XParts { get; set; } = 10;
+        public int YParts { get; set; } = 8;
+
 
         /// <summary>
         /// 测试数据填充
         /// </summary>
-        public DataSource()
+        public Data()
         {
             X = new List<float> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             Y = new List<float> { 5, 5, 4, 7, 57, 8, 8, 7, 32 };
@@ -34,10 +41,20 @@ namespace ChallengeCup.Data
         /// </summary>
         /// <param name="x">x轴数据</param>
         /// <param name="y">y轴数据</param>
-        public DataSource(List<float> x, List<float> y)
+        //public Data(List<float> x, List<float> y)
+        //{
+        //    X = x;
+        //    Y = y;
+        //}
+
+        /// <summary>
+        /// Chanel数据初始化
+        /// </summary>
+        /// <param name="c"></param>
+        /// 尚未使用
+        public Data(Chanel[] c)
         {
-            X = x;
-            Y = y;
+            Chanels = c;
         }
 
         /// <summary>
@@ -46,25 +63,32 @@ namespace ChallengeCup.Data
         /// <returns>返回x轴数据间隔</returns>
         public float XInterval()
         {
-            return X.Max() / 10;
+            return (int)X.Max() / YParts; ;
         }
         
         /// <summary>
         /// 计算y轴的数据间隔
+        /// y轴最大值 / 间隔数
         /// </summary>
         /// <returns>y轴数据间隔</returns>
-        public float YInterval()
+        public int YInterval()
         {
-            return Y.Average() / 4;
+            float max = 0;
+            foreach (Chanel item in Chanels)
+            {
+                max = (item.Data.Max() > max) ? item.Data.Max() : max;
+            }
+            return (int)max / YParts; ;
         }
 
         /// <summary>
         /// 计算y轴的最大显示范围
+        /// 数据间隔 * 间隔数 * 2， 可以让数据显示在中间
         /// </summary>
         /// <returns>y轴最大显示范围</returns>
         public float MaxY()
         {
-            return Y.Average() * 4;
+            return YInterval() * YParts * 2;
         }
     }
 }

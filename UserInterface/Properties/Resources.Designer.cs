@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ChallengeCup.Properties {
+namespace GUI.Properties {
     using System;
     
     

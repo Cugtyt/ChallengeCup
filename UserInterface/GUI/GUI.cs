@@ -1,5 +1,4 @@
-﻿using ChallengeCup.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,7 +10,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 
-namespace ChallengeCup
+namespace GUI
 {
     public partial class UserInterface : Form
     {
@@ -23,8 +22,8 @@ namespace ChallengeCup
         protected override void OnPrint(PaintEventArgs e)
         {
             base.OnPrint(e);
-            
-            DataSource ds = new DataSource();
+
+            Data.Data ds = new Data.Data();
             try
             {
                 //chart1.Series[0].Points.DataBindXY(listX, listY);

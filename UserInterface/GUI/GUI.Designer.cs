@@ -1,4 +1,4 @@
-﻿namespace ChallengeCup
+﻿namespace GUI
 {
     partial class UserInterface
     {

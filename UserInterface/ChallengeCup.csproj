@@ -46,7 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\DataSource.cs" />
+    <Compile Include="Data\Chanel.cs" />
+    <Compile Include="Data\Data.cs" />
     <Compile Include="FileControl\FileControl.cs" />
     <Compile Include="GUI\GUI.cs">
       <SubType>Form</SubType>
@@ -54,7 +55,7 @@
     <Compile Include="GUI\GUI.Designer.cs">
       <DependentUpon>GUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="GUI\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\GUI.resx">
       <DependentUpon>GUI.cs</DependentUpon>
