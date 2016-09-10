@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    class Data
+    public class DataSource
     {
         /// <summary>
         /// x轴和y轴名称
@@ -30,7 +30,7 @@ namespace Data
         /// <summary>
         /// 测试数据填充
         /// </summary>
-        public Data()
+        public DataSource()
         {
             X = new List<float> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             Y = new List<float> { 5, 5, 4, 7, 57, 8, 8, 7, 32 };
@@ -52,7 +52,7 @@ namespace Data
         /// </summary>
         /// <param name="c"></param>
         /// 尚未使用
-        public Data(Chanel[] c)
+        public DataSource(Chanel[] c)
         {
             Chanels = c;
         }
@@ -73,12 +73,16 @@ namespace Data
         /// <returns>y轴数据间隔</returns>
         public int YInterval()
         {
-            float max = 0;
-            foreach (Chanel item in Chanels)
-            {
-                max = (item.Data.Max() > max) ? item.Data.Max() : max;
-            }
-            return (int)max / YParts; ;
+            //float max = 0;
+            //foreach (Chanel item in Chanels)
+            //{
+            //    max = (item.Data.Max() > max) ? item.Data.Max() : max;
+            //}
+            //return (int)max / YParts;
+
+
+            //测试数据
+            return 8;
         }
 
         /// <summary>
@@ -89,6 +93,20 @@ namespace Data
         public float MaxY()
         {
             return YInterval() * YParts * 2;
+        }
+
+        /// <summary>
+        /// 用于测试输出Chanels里的数据
+        /// </summary>
+        /// <returns>生成的数据</returns>
+        public override string ToString()
+        {
+            StringBuilder s = new StringBuilder();
+            foreach (var chanel in Chanels)
+            {
+                s.Append(chanel.ToString());
+            }
+            return s.ToString();
         }
     }
 }

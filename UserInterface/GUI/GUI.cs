@@ -23,7 +23,7 @@ namespace GUI
         {
             base.OnPrint(e);
 
-            Data.Data ds = new Data.Data();
+            Data.DataSource ds = new Data.DataSource();
             try
             {
                 //chart1.Series[0].Points.DataBindXY(listX, listY);

@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Chanel.cs" />
-    <Compile Include="Data\Data.cs" />
+    <Compile Include="Data\DataSource.cs" />
     <Compile Include="FileControl\FileControl.cs" />
     <Compile Include="GUI\GUI.cs">
       <SubType>Form</SubType>
