@@ -13,6 +13,11 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GUI
 {
+    /// <summary>
+    /// 用户界面类
+    /// 
+    /// 控制界面的显示
+    /// </summary>
     public partial class UserInterface : Form
     {
         public UserInterface()
@@ -20,6 +25,10 @@ namespace GUI
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 主要用于chart控件的绘图
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnPrint(PaintEventArgs e)
         {
             base.OnPrint(e);

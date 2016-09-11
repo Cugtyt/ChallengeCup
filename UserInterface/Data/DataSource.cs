@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace Data
 {
+    /// <summary>
+    /// 数据类
+    /// 
+    /// 存放chart绘图数据相关信息
+    /// </summary>
     public class DataSource
     {
         /// <summary>
@@ -23,6 +28,9 @@ namespace Data
         /// 每个通道的数据
         /// </summary>
         public List<float>[] Chanels { get; private set; }
+        /// <summary>
+        /// x轴和y轴需要显示的区间数
+        /// </summary>
         public int XParts { get; set; } = 10;
         public int YParts { get; set; } = 8;
 

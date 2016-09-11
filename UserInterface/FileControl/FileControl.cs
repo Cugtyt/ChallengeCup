@@ -9,8 +9,14 @@ using System.Threading.Tasks;
 
 namespace FileControl
 {
+    /// <summary>
+    /// 文件控制类
+    /// 
+    /// 静态类, 包含ReadData和WriteData两个方法
+    /// </summary>
     public static class FileControl
     {
+        /// 废弃
         /// <summary>
         /// 文件路径
         /// </summary>
@@ -20,6 +26,7 @@ namespace FileControl
         /// <summary>
         /// 从文件中读取数据
         /// </summary>
+        /// <param name="filePath">文件路径</param>
         /// <returns>读取的数据</returns>
         public static DataSource ReadData(string filePath)
         {
@@ -73,6 +80,7 @@ namespace FileControl
         /// 将数据写入文件
         /// </summary>
         /// <param name="data">需要写入的数据</param>
+        /// <param name="filePath">文件路径</param>
         public static void WriteData(DataSource data, string filePath)
         {
             // 将该功能移到上层控制
