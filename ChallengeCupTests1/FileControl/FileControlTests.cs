@@ -12,16 +12,13 @@ namespace FileControl.Tests
     [TestClass()]
     public class FileControlTests
     {
-        private string TestFilePath = @"C:\Users\Daniel\Desktop";
-        private string TestFileName = "test.txt";
+        private string TestFilePath = @"C:\Users\Daniel\Desktop\test.txt";
 
         [TestMethod()]
         public void ReadDataTest()
         {
             string test = "1.5\t1.4\t\n2.1\t2.8\t\n";
-            FileControl.FilePath = TestFilePath;
-            FileControl.FileName = TestFileName;
-            DataSource data = FileControl.ReadData();
+            DataSource data = FileControl.ReadData(TestFilePath);
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < data.Chanels.Length; i++)
             {
@@ -37,15 +34,13 @@ namespace FileControl.Tests
         [TestMethod()]
         public void WriteDataTest()
         {
-            FileControl.FilePath = TestFilePath;
-            FileControl.FileName = TestFileName;
             Chanel[] chanels = new Chanel[]
             {
                 new Chanel(new List<float> { 1.5f, 1.4f }),
                 new Chanel(new List<float> { 2.1f, 2.8f })
             };
-            DataSource data = new DataSource(chanels);
-            FileControl.WriteData(data);
+            DataSource data = DataSource.GetInstance(chanels);
+            FileControl.WriteData(data, TestFilePath);
         }
     }
 }

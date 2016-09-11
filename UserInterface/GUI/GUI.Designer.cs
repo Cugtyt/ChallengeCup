@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -171,16 +171,16 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(8, 9);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(874, 478);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "chart1";
@@ -369,42 +369,42 @@
             // 新建ToolStripMenuItem
             // 
             this.新建ToolStripMenuItem.Name = "新建ToolStripMenuItem";
-            this.新建ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.新建ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.新建ToolStripMenuItem.Text = "新建";
             // 
             // 打开ToolStripMenuItem
             // 
             this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
-            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.打开ToolStripMenuItem.Text = "打开";
             this.打开ToolStripMenuItem.Click += new System.EventHandler(this.打开ToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(109, 6);
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.保存ToolStripMenuItem.Text = "保存";
             // 
             // 另存为ToolStripMenuItem
             // 
             this.另存为ToolStripMenuItem.Name = "另存为ToolStripMenuItem";
-            this.另存为ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.另存为ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.另存为ToolStripMenuItem.Text = "另存为";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(109, 6);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             // 
             // toolStripMenuItem2
@@ -422,19 +422,19 @@
             // 撤销ToolStripMenuItem
             // 
             this.撤销ToolStripMenuItem.Name = "撤销ToolStripMenuItem";
-            this.撤销ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.撤销ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.撤销ToolStripMenuItem.Text = "撤销";
             // 
             // 复位ToolStripMenuItem
             // 
             this.复位ToolStripMenuItem.Name = "复位ToolStripMenuItem";
-            this.复位ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.复位ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.复位ToolStripMenuItem.Text = "复位";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(97, 6);
             // 
             // 转换ToolStripMenuItem
             // 
@@ -442,7 +442,7 @@
             this.时域ToolStripMenuItem,
             this.频域ToolStripMenuItem});
             this.转换ToolStripMenuItem.Name = "转换ToolStripMenuItem";
-            this.转换ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.转换ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.转换ToolStripMenuItem.Text = "转换";
             // 
             // 时域ToolStripMenuItem
@@ -463,7 +463,7 @@
             this.快速查找ToolStripMenuItem,
             this.在文件中查找ToolStripMenuItem});
             this.查找ToolStripMenuItem.Name = "查找ToolStripMenuItem";
-            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.查找ToolStripMenuItem.Text = "查找";
             // 
             // 快速查找ToolStripMenuItem
@@ -491,13 +491,13 @@
             // 警告设置ToolStripMenuItem
             // 
             this.警告设置ToolStripMenuItem.Name = "警告设置ToolStripMenuItem";
-            this.警告设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.警告设置ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.警告设置ToolStripMenuItem.Text = "警告设置";
             // 
             // 警告分析ToolStripMenuItem
             // 
             this.警告分析ToolStripMenuItem.Name = "警告分析ToolStripMenuItem";
-            this.警告分析ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.警告分析ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.警告分析ToolStripMenuItem.Text = "警告分析";
             // 
             // toolStripMenuItem4
@@ -563,10 +563,6 @@
             this.button8.TabIndex = 6;
             this.button8.Text = "截图";
             this.button8.UseVisualStyleBackColor = true;
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "openFileDialog";
             // 
             // UserInterface
             // 

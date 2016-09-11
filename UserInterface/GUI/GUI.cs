@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,7 +24,15 @@ namespace GUI
         {
             base.OnPrint(e);
 
+            #region alpha test
+            // 使用DataSource设定数据测试
             Data.DataSource ds = new Data.DataSource();
+            #endregion
+
+            #region beta test
+            // 使用文件读取的数据
+            //DataSource ds = FileControl.FileControl.ReadData(this.filePath.ToString());
+            #endregion
             try
             {
                 //chart1.Series[0].Points.DataBindXY(listX, listY);

@@ -12,28 +12,28 @@ namespace FileControl
     public static class FileControl
     {
         /// <summary>
-        /// 文件名和文件路径
+        /// 文件路径
         /// </summary>
-        public static string FileName { get; set; }
-        public static string FilePath { get; set; }
+        //public static string FileName { get; set; }
+        //public static string FilePath { get; set; }
 
         /// <summary>
         /// 从文件中读取数据
         /// </summary>
         /// <returns>读取的数据</returns>
-        public static DataSource ReadData()
+        public static DataSource ReadData(string filePath)
         {
-            string path = Path.Combine(FilePath, FileName);
+            //string path = Path.Combine(FilePath, FileName);
 #if DEBUG
-            Console.WriteLine("file is " + path);
+            Console.WriteLine("file is " + filePath);
 #endif
-            if (File.Exists(path))
+            if (File.Exists(filePath))
             {
 #if DEBUG
                 Console.WriteLine("file is valid");
 #endif
                 Chanel[] chanels;
-                using (StreamReader reader = new StreamReader(path))
+                using (StreamReader reader = new StreamReader(filePath))
                 {
                     // 读取通道个数
                     int chanelNumber = int.Parse(reader.ReadLine());
@@ -61,7 +61,8 @@ namespace FileControl
                         chanels[i % chanelNumber].Data.Add(float.Parse(match[i].ToString()));
                     }
                 }
-                return new DataSource(chanels);
+                //return new DataSource(chanels);
+                return DataSource.GetInstance(chanels);
             }
             // 文件不存在
             return null;
@@ -71,16 +72,15 @@ namespace FileControl
         /// 将数据写入文件
         /// </summary>
         /// <param name="data">需要写入的数据</param>
-        public static void WriteData(DataSource data)
+        public static void WriteData(DataSource data, string filePath)
         {
-#if DEBUG
-            //测试文件
-            string path = Path.Combine(FilePath, FileName);
-#else
+            // 将该功能移到上层控制
             //使用日期作为文件名称
-            string path = Path.Combine(FilePath, DateTime.Now.ToString().Replace(' ', '-'));
+            //string path = Path.Combine(FilePath, DateTime.Now.ToString().Replace(' ', '-'));
+#if DEBUG
+            Console.WriteLine("write file " + filePath);
 #endif
-            using (StreamWriter writer = new StreamWriter(path))
+            using (StreamWriter writer = new StreamWriter(filePath))
             {
                 // 写入通道个数
                 writer.WriteLine(data.Chanels.Length);
