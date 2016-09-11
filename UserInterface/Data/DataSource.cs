@@ -26,6 +26,7 @@ namespace Data
         public int XParts { get; set; } = 10;
         public int YParts { get; set; } = 8;
 
+        public static DataSource ds = null;
 
         /// <summary>
         /// 测试数据填充
@@ -51,10 +52,14 @@ namespace Data
         /// Chanel数据初始化
         /// </summary>
         /// <param name="c"></param>
-        /// 尚未使用
-        public DataSource(Chanel[] c)
+        private DataSource(Chanel[] c)
         {
             Chanels = c;
+        }
+
+        public static DataSource GetInstance(Chanel[] c)
+        {
+            return (ds != null) ? ds : new DataSource(c);
         }
 
         /// <summary>
@@ -63,7 +68,7 @@ namespace Data
         /// <returns>返回x轴数据间隔</returns>
         public float XInterval()
         {
-            return (int)X.Max() / YParts; ;
+            return (int)X.Max() / YParts;
         }
         
         /// <summary>
