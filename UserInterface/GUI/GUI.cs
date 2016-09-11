@@ -35,9 +35,18 @@ namespace GUI
             #endregion
             try
             {
+                // 绑定数据
                 //chart1.Series[0].Points.DataBindXY(listX, listY);
-                chart1.Series[0].Points.DataBindY(ds.Y);
+                //chart1.Series[0].Points.DataBindY(ds.Y);
+                //chart1.Series[0].Points.DataBindXY(listX, listY);
+                chart1.Series[0].Points.DataBindY(ds.Chanels[0]);
 
+
+                // 测试失败， 引发异常，问题在Series
+                //for (int i = 0; i < ds.Chanels.Length; i++)
+                //{
+                //    chart1.Series["series" + (i + 1)].Points.DataBindY(ds.Chanels[i]);
+                //}
                 //chart1.Series[0].MarkerColor = Color.Green;               //unknown
                 // 设置为折线显示
                 chart1.Series[0].ChartType = SeriesChartType.Spline;

@@ -32,7 +32,8 @@ namespace FileControl
 #if DEBUG
                 Console.WriteLine("file is valid");
 #endif
-                Chanel[] chanels;
+                //Chanel[] chanels;
+                List<float>[] chanels;
                 using (StreamReader reader = new StreamReader(filePath))
                 {
                     // 读取通道个数
@@ -40,10 +41,10 @@ namespace FileControl
 #if DEBUG
                     Console.WriteLine("chanel number is " + chanelNumber);
 #endif
-                    chanels = new Chanel[chanelNumber];
+                    chanels = new List<float>[chanelNumber];
                     for (int i = 0; i < chanels.Length; i++)
                     {
-                        chanels[i] = new Chanel();
+                        chanels[i] = new List<float>();
                     }
                     // 使用正则表达式匹配浮点数
                     string text = reader.ReadToEnd();
@@ -58,7 +59,7 @@ namespace FileControl
 #if DEBUG
                         Console.WriteLine("i = " + i + " chanels[" + i % (chanelNumber) + "] add " + float.Parse(match[i].ToString()));
 #endif
-                        chanels[i % chanelNumber].Data.Add(float.Parse(match[i].ToString()));
+                        chanels[i % chanelNumber].Add(float.Parse(match[i].ToString()));
                     }
                 }
                 //return new DataSource(chanels);
@@ -87,11 +88,11 @@ namespace FileControl
 #if DEBUG
                 Console.WriteLine("chanel number is " + data.Chanels.Length);
 #endif
-                for (int i = 0; i < data.Chanels[0].Data.Count; i++)
+                for (int i = 0; i < data.Chanels[0].Count; i++)
                 {
                     foreach (var item in data.Chanels)
                     {
-                        writer.Write(item.Data[i] + "\t");
+                        writer.Write(item[i] + "\t");
                     }
                     writer.WriteLine();
                 }

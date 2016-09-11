@@ -24,9 +24,14 @@ namespace FileControl.Tests
             {
                 Console.WriteLine(i + " " + data.Chanels[i]);
             }
-            foreach (Chanel c in data.Chanels)
+            foreach (var c in data.Chanels)
             {
-                sb.Append(c);
+                //sb.Append(c);
+                foreach (var item in c)
+                {
+                    sb.Append(item + "\t");
+                }
+                sb.Append('\n');
             }
             Assert.AreEqual(sb.ToString(), test);
         }
@@ -34,10 +39,10 @@ namespace FileControl.Tests
         [TestMethod()]
         public void WriteDataTest()
         {
-            Chanel[] chanels = new Chanel[]
+            List<float>[] chanels = new List<float>[]
             {
-                new Chanel(new List<float> { 1.5f, 1.4f }),
-                new Chanel(new List<float> { 2.1f, 2.8f })
+                new List<float> { 1.5f, 1.4f },
+                new List<float> { 2.1f, 2.8f }
             };
             DataSource data = DataSource.GetInstance(chanels);
             FileControl.WriteData(data, TestFilePath);

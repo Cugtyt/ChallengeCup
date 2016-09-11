@@ -18,11 +18,11 @@ namespace Data
         /// x轴和y轴数据
         /// </summary>
         public List<float> X { get; private set; }
-        public List<float> Y { get; private set; }
+        //public List<float> Y { get; private set; }
         /// <summary>
         /// 每个通道的数据
         /// </summary>
-        public Chanel[] Chanels { get; private set; }
+        public List<float>[] Chanels { get; private set; }
         public int XParts { get; set; } = 10;
         public int YParts { get; set; } = 8;
 
@@ -34,7 +34,12 @@ namespace Data
         public DataSource()
         {
             X = new List<float> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            Y = new List<float> { 5, 5, 4, 7, 57, 8, 8, 7, 32 };
+            //Y = new List<float> { 5, 5, 4, 7, 57, 8, 8, 7, 32 };
+            Chanels = new List<float>[]
+            {
+                new List<float> {1.5f, 2.0f, 1.8f, 4.5f, 3.2f, 4.3f, 2.8f, 5.1f },
+                new List<float> {2.5f, 3.3f, 4.8f, 5.6f, 4.9f, 6.7f, 8.2f, 6.8f }
+            };
         }
 
         /// <summary>
@@ -52,12 +57,12 @@ namespace Data
         /// Chanel数据初始化
         /// </summary>
         /// <param name="c"></param>
-        private DataSource(Chanel[] c)
+        private DataSource(List<float>[] c)
         {
             Chanels = c;
         }
 
-        public static DataSource GetInstance(Chanel[] c)
+        public static DataSource GetInstance(List<float>[] c)
         {
             return (ds != null) ? ds : new DataSource(c);
         }
