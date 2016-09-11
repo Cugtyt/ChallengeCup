@@ -91,6 +91,34 @@ namespace GUI
         {
 
         }
+
+        /// <summary>
+        /// 浏览文件按钮点击事件
+        /// 
+        /// 显示打开文件对话框
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void browseFileBtn_Click(object sender, EventArgs e)
+        {
+#if DEBUG
+            Console.WriteLine("BrowseFileBtn click");
+#endif
+            this.openFileDialog.ShowDialog();
+        }
+
+        /// <summary>
+        /// 浏览文件菜单点击事件
+        /// 
+        /// 使用浏览文件按钮点击事件一样处理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <see cref="browseFileBtn"/>
+        private void 打开ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            browseFileBtn_Click(sender, e);
+        }
     }
 }
 

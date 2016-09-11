@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
@@ -50,8 +51,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.browseFileBtn = new System.Windows.Forms.Button();
+            this.filePath = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,7 +85,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -159,18 +160,27 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // hScrollBar1
+            // 
+            this.hScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.hScrollBar1.Location = new System.Drawing.Point(8, 490);
+            this.hScrollBar1.Name = "hScrollBar1";
+            this.hScrollBar1.Size = new System.Drawing.Size(874, 20);
+            this.hScrollBar1.TabIndex = 5;
+            // 
             // chart1
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.chart1.Legends.Add(legend8);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(8, 9);
             this.chart1.Name = "chart1";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            this.chart1.Series.Add(series8);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(874, 478);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "chart1";
@@ -291,8 +301,8 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.browseFileBtn);
+            this.tabPage2.Controls.Add(this.filePath);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
@@ -302,22 +312,23 @@
             this.tabPage2.Text = "导入文件";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // browseFileBtn
             // 
-            this.button4.Location = new System.Drawing.Point(925, 63);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(82, 28);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "浏览";
-            this.button4.UseVisualStyleBackColor = true;
+            this.browseFileBtn.Location = new System.Drawing.Point(925, 63);
+            this.browseFileBtn.Name = "browseFileBtn";
+            this.browseFileBtn.Size = new System.Drawing.Size(82, 28);
+            this.browseFileBtn.TabIndex = 2;
+            this.browseFileBtn.Text = "浏览";
+            this.browseFileBtn.UseVisualStyleBackColor = true;
+            this.browseFileBtn.Click += new System.EventHandler(this.browseFileBtn_Click);
             // 
-            // comboBox1
+            // filePath
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(262, 67);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(624, 22);
-            this.comboBox1.TabIndex = 1;
+            this.filePath.FormattingEnabled = true;
+            this.filePath.Location = new System.Drawing.Point(262, 67);
+            this.filePath.Name = "filePath";
+            this.filePath.Size = new System.Drawing.Size(624, 22);
+            this.filePath.TabIndex = 1;
             // 
             // label1
             // 
@@ -358,41 +369,42 @@
             // 新建ToolStripMenuItem
             // 
             this.新建ToolStripMenuItem.Name = "新建ToolStripMenuItem";
-            this.新建ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.新建ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.新建ToolStripMenuItem.Text = "新建";
             // 
             // 打开ToolStripMenuItem
             // 
             this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
-            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.打开ToolStripMenuItem.Text = "打开";
+            this.打开ToolStripMenuItem.Click += new System.EventHandler(this.打开ToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(109, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.保存ToolStripMenuItem.Text = "保存";
             // 
             // 另存为ToolStripMenuItem
             // 
             this.另存为ToolStripMenuItem.Name = "另存为ToolStripMenuItem";
-            this.另存为ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.另存为ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.另存为ToolStripMenuItem.Text = "另存为";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(109, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             // 
             // toolStripMenuItem2
@@ -410,19 +422,19 @@
             // 撤销ToolStripMenuItem
             // 
             this.撤销ToolStripMenuItem.Name = "撤销ToolStripMenuItem";
-            this.撤销ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.撤销ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.撤销ToolStripMenuItem.Text = "撤销";
             // 
             // 复位ToolStripMenuItem
             // 
             this.复位ToolStripMenuItem.Name = "复位ToolStripMenuItem";
-            this.复位ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.复位ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.复位ToolStripMenuItem.Text = "复位";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(97, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // 转换ToolStripMenuItem
             // 
@@ -430,7 +442,7 @@
             this.时域ToolStripMenuItem,
             this.频域ToolStripMenuItem});
             this.转换ToolStripMenuItem.Name = "转换ToolStripMenuItem";
-            this.转换ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.转换ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.转换ToolStripMenuItem.Text = "转换";
             // 
             // 时域ToolStripMenuItem
@@ -451,7 +463,7 @@
             this.快速查找ToolStripMenuItem,
             this.在文件中查找ToolStripMenuItem});
             this.查找ToolStripMenuItem.Name = "查找ToolStripMenuItem";
-            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.查找ToolStripMenuItem.Text = "查找";
             // 
             // 快速查找ToolStripMenuItem
@@ -479,13 +491,13 @@
             // 警告设置ToolStripMenuItem
             // 
             this.警告设置ToolStripMenuItem.Name = "警告设置ToolStripMenuItem";
-            this.警告设置ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.警告设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.警告设置ToolStripMenuItem.Text = "警告设置";
             // 
             // 警告分析ToolStripMenuItem
             // 
             this.警告分析ToolStripMenuItem.Name = "警告分析ToolStripMenuItem";
-            this.警告分析ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.警告分析ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.警告分析ToolStripMenuItem.Text = "警告分析";
             // 
             // toolStripMenuItem4
@@ -552,16 +564,11 @@
             this.button8.Text = "截图";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // hScrollBar1
+            // openFileDialog
             // 
-            this.hScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hScrollBar1.Location = new System.Drawing.Point(8, 490);
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(874, 20);
-            this.hScrollBar1.TabIndex = 5;
+            this.openFileDialog.FileName = "openFileDialog";
             // 
-            // Form1
+            // UserInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -579,7 +586,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "UserInterface";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "测试02";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -612,8 +619,8 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button browseFileBtn;
+        private System.Windows.Forms.ComboBox filePath;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -660,6 +667,7 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.HScrollBar hScrollBar1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 
