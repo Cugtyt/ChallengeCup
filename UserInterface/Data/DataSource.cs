@@ -8,31 +8,28 @@ using System.Threading.Tasks;
 namespace Data
 {
     /// <summary>
-    /// 数据类
+    /// DataSource class
     /// 
-    /// 存放chart绘图数据相关信息
+    /// store the data which will be shown in chart
     /// </summary>
     public class DataSource
     {
         /// <summary>
-        /// x轴和y轴名称
+        /// name of x and y
         /// </summary>
         public string XName { get; set; } = "x name";
         public string YName { get; set; } = "y name";
-        /// <summary>
-        /// x轴和y轴数据
-        /// </summary>
+        // for test
         public List<float> X { get; private set; }
-        //public List<float> Y { get; private set; }
         /// <summary>
-        /// 每个通道的数据
+        /// chanels' data
         /// </summary>
         public List<float>[] Chanels { get; private set; }
         /// <summary>
         /// x轴和y轴需要显示的区间数
         /// </summary>
-        public int XParts { get; set; } = 10;
-        public int YParts { get; set; } = 8;
+        //public int XParts { get; set; } = 10;
+        //public int YParts { get; set; } = 8;
 
         public static DataSource ds = null;
 
@@ -51,18 +48,7 @@ namespace Data
         }
 
         /// <summary>
-        /// 传入x轴和y轴数据初始化
-        /// </summary>
-        /// <param name="x">x轴数据</param>
-        /// <param name="y">y轴数据</param>
-        //public Data(List<float> x, List<float> y)
-        //{
-        //    X = x;
-        //    Y = y;
-        //}
-
-        /// <summary>
-        /// Chanel数据初始化
+        /// initial chanels
         /// </summary>
         /// <param name="c"></param>
         private DataSource(List<float>[] c)
@@ -70,23 +56,30 @@ namespace Data
             Chanels = c;
         }
 
+        /// <summary>
+        /// use singleton pattern
+        /// 
+        /// for there always will be one DataSource to show in chart
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
         public static DataSource GetInstance(List<float>[] c)
         {
             return (ds != null) ? ds : new DataSource(c);
         }
 
         /// <summary>
-        /// 计算x轴的数据间隔
+        /// calculate interval of x
         /// </summary>
-        /// <returns>返回x轴数据间隔</returns>
+        /// <returns>interval of x</returns>
         public float XInterval()
         {
-            return (int)X.Max() / YParts;
+            return 10;
         }
         
         /// <summary>
-        /// 计算y轴的数据间隔
-        /// y轴最大值 / 间隔数
+        /// calculate interval of y
+        /// 
         /// </summary>
         /// <returns>y轴数据间隔</returns>
         public int YInterval()
@@ -105,26 +98,32 @@ namespace Data
 
         /// <summary>
         /// 计算y轴的最大显示范围
-        /// 数据间隔 * 间隔数 * 2， 可以让数据显示在中间
+        /// 
+        /// 数据最大值 * 2
         /// </summary>
         /// <returns>y轴最大显示范围</returns>
         public float MaxY()
         {
-            return YInterval() * YParts * 2;
+            float maxY = 0;
+            foreach (var c in Chanels)
+            {
+                maxY = (c.Max() > maxY) ? c.Max() : maxY;
+            }
+            return maxY;
         }
 
-        /// <summary>
-        /// 用于测试输出Chanels里的数据
-        /// </summary>
-        /// <returns>生成的数据</returns>
-        public override string ToString()
-        {
-            StringBuilder s = new StringBuilder();
-            foreach (var chanel in Chanels)
-            {
-                s.Append(chanel.ToString());
-            }
-            return s.ToString();
-        }
+        ///// <summary>
+        ///// 用于测试输出Chanels里的数据
+        ///// </summary>
+        ///// <returns>生成的数据</returns>
+        //public override string ToString()
+        //{
+        //    StringBuilder s = new StringBuilder();
+        //    foreach (var chanel in Chanels)
+        //    {
+        //        s.Append(chanel.ToString());
+        //    }
+        //    return s.ToString();
+        //}
     }
 }

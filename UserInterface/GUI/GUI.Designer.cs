@@ -36,8 +36,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.hScrollBar = new System.Windows.Forms.HScrollBar();
+            this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
@@ -52,7 +52,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.browseFileBtn = new System.Windows.Forms.Button();
-            this.filePath = new System.Windows.Forms.ComboBox();
+            this.filePathComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,7 +88,7 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -146,8 +146,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.hScrollBar1);
-            this.tabPage1.Controls.Add(this.chart1);
+            this.tabPage1.Controls.Add(this.hScrollBar);
+            this.tabPage1.Controls.Add(this.chart);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
@@ -160,31 +160,31 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // hScrollBar1
+            // hScrollBar
             // 
-            this.hScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.hScrollBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.hScrollBar1.Location = new System.Drawing.Point(8, 490);
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(874, 20);
-            this.hScrollBar1.TabIndex = 5;
+            this.hScrollBar.Location = new System.Drawing.Point(8, 490);
+            this.hScrollBar.Name = "hScrollBar";
+            this.hScrollBar.Size = new System.Drawing.Size(874, 20);
+            this.hScrollBar.TabIndex = 5;
             // 
-            // chart1
+            // chart
             // 
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(8, 9);
-            this.chart1.Name = "chart1";
+            this.chart.Legends.Add(legend1);
+            this.chart.Location = new System.Drawing.Point(8, 9);
+            this.chart.Name = "chart";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(874, 478);
-            this.chart1.TabIndex = 4;
-            this.chart1.Text = "chart1";
-            this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            this.chart.Series.Add(series1);
+            this.chart.Size = new System.Drawing.Size(874, 478);
+            this.chart.TabIndex = 4;
+            this.chart.Text = "chart1";
+            this.chart.Click += new System.EventHandler(this.chart1_Click);
             // 
             // groupBox3
             // 
@@ -302,7 +302,7 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.browseFileBtn);
-            this.tabPage2.Controls.Add(this.filePath);
+            this.tabPage2.Controls.Add(this.filePathComboBox);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
@@ -322,13 +322,13 @@
             this.browseFileBtn.UseVisualStyleBackColor = true;
             this.browseFileBtn.Click += new System.EventHandler(this.browseFileBtn_Click);
             // 
-            // filePath
+            // filePathComboBox
             // 
-            this.filePath.FormattingEnabled = true;
-            this.filePath.Location = new System.Drawing.Point(262, 67);
-            this.filePath.Name = "filePath";
-            this.filePath.Size = new System.Drawing.Size(624, 22);
-            this.filePath.TabIndex = 1;
+            this.filePathComboBox.FormattingEnabled = true;
+            this.filePathComboBox.Location = new System.Drawing.Point(262, 67);
+            this.filePathComboBox.Name = "filePathComboBox";
+            this.filePathComboBox.Size = new System.Drawing.Size(624, 22);
+            this.filePathComboBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -588,7 +588,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
@@ -616,12 +616,12 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button browseFileBtn;
-        private System.Windows.Forms.ComboBox filePath;
+        private System.Windows.Forms.ComboBox filePathComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -661,7 +661,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.HScrollBar hScrollBar1;
+        private System.Windows.Forms.HScrollBar hScrollBar;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
